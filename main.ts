@@ -586,7 +586,7 @@ namespace SmartAILens {
     //% status.fieldOptions.columns=3
     //% group="Learn"
     export function thingsData(): number {
-        if (DataBuff[0] == 10) {
+        if (DataBuff[0] == 10 && DataBuff[2] < 10) {
             return DataBuff[1]
         }
         else{
