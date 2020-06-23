@@ -487,6 +487,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
+    //% deprecated=true
     export function lineTracking(status: LineList): boolean {
         if (DataBuff[0] == 8) {
             if (DataBuff[4] == status) {
@@ -503,6 +504,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
+    //% deprecated=true
     export function trackingData(status: Linestatus): number {
         if (DataBuff[0] == 8) {
             switch (status) {
