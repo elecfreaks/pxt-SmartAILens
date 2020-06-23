@@ -293,12 +293,20 @@ namespace SmartAILens {
     //% block="Init model IIC Port"
     //% group="Basics" weight=1
     export function initModel():void{
-        
+        while (!(pins.i2cReadNumber(0x14, NumberFormat.Int8LE))) {
+
+        }   
     }
     //% block="Enable function | func1 %fun1 ||func2 %fun2|func3 %fun3"
     //% expandableArgumentMode="enabled"
     //% group="Basics" weight=2
     export function initfunc(fun1: FuncList, fun2: FuncList = 0, fun3: FuncList=0):void{
+        let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
+        funcBuff[0]=0x20
+        funcBuff[1]=fun1
+        funcBuff[2]=fun2
+        funcBuff[3]=fun3
+        pins.i2cWriteBuffer(CameraAdd, funcBuff)
 
     }
     //% block="Get once data from ElangGod"
