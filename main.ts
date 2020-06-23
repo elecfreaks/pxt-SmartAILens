@@ -281,15 +281,6 @@ namespace SmartAILens {
 		//% block="umbrella"
         umbrella = 17
     }
-    let NumCardlabels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    let LetterCardlabels = ["A", "B", "C", "D", "E", "F", "G", "H",
-        "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    let TrafficCardlabels = ["go_ahead", "no_travel", "turn_around", "turn_left", "turn_right"]
-    let OtherCardlabels = ["hexagon", "pentagon", "quadrilateral", "round", "triangle", "airplane",
-        "apple", "bread", "car", "cat", "cup", "dog", "egg", "grape", "pear", "ship", "strawberry",
-        "umbrella"]
-    let ColorList = ["black", "blue", "brown", "green", "orange", "pink", "purple", "red", "rose", "white", "yellow"]
-
     //% block="Init model IIC Port"
     //% group="Basics" weight=1
     export function initModel():void{
