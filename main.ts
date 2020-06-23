@@ -592,6 +592,5 @@ namespace SmartAILens {
         else{
             return null
         }
-            
     }
 }
