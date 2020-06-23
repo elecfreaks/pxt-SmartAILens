@@ -1,5 +1,5 @@
 /**
- * This extension is designed to programme and drive the AICamera ErLang God(二郎神)
+ * This extension is designed to programme and drive the Smart AI Lens(二郎神)
  */
 //% weight=0 color=#0031AF icon="\uf06e"
 //% groups='["Basics", "Ball", "Face", "Card", "Color", "Tracking", "Learn"]'
