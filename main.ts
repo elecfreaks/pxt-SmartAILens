@@ -424,7 +424,7 @@ namespace SmartAILens {
         else
             return false
     }
-    //% block="Recognize the letter Card %status"
+    //% block="Recognize the traffic Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card"
