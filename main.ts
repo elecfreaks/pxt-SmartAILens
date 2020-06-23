@@ -231,6 +231,9 @@ namespace SmartAILens {
         //% block="Z"
         Z = 25
     }
+    export enum trafficCards{
+
+    }
     export enum otherCards{
 		//% block="hexagon"
         hexagon = 0,
@@ -395,55 +398,48 @@ namespace SmartAILens {
     //% status.fieldOptions.columns=3
     //% group="Card"
     export function numberCard(status:numberCards): boolean{
-        switch (status) {
-            case numberCards.zero:
-                return numberCards.zero == DataBuff[1]
-                break
-            case numberCards.one:
-                return numberCards.one == DataBuff[1]
-                break
-            case numberCards.two:
-                return numberCards.two == DataBuff[1]
-                break
-            case numberCards.three:
-                return numberCards.three == DataBuff[1]
-                break
-            case numberCards.four:
-                return numberCards.four == DataBuff[1]
-                break
-            case numberCards.five:
-                return numberCards.five == DataBuff[1]
-                break
-            case numberCards.six:
-                return numberCards.six == DataBuff[1]
-                break
-            case numberCards.seven:
-                return numberCards.seven == DataBuff[1]
-                break
-            case numberCards.eight:
-                return numberCards.eight == DataBuff[1]
-                break
-            case numberCards.nine:
-                return numberCards.nine == DataBuff[1]
-                break
-            default:
-                return false
+        if (DataBuff[0] == 2) {
+            return status == DataBuff[1]
         }
+        else
+            return false
     }
+
     //% block="Recognize the letter Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card"
     export function letterCard(status:letterCards): boolean{
-        return status == DataBuff[1]
+        if (DataBuff[0] == 3) {
+            return status == DataBuff[1]
+        }
+        else
+            return false
     }
+    //% block="Recognize the letter Card %status"
+    //% status.fieldEditor="gridpicker"
+    //% status.fieldOptions.columns=3
+    //% group="Card"
+    export function trafficCard(status:letterCards): boolean{
+        if (DataBuff[0] == 4) {
+            return status == DataBuff[1]
+        }
+        else
+            return false
+    }
+
     //% block="Recognize the other Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card"
     export function otherCard(status:otherCards): boolean{
-       return status == DataBuff[1]
+        if (DataBuff[0] == 5) {
+            return status == DataBuff[1]
+        }
+        else
+            return false
     }
+
     //% block="From data Object Card status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -519,43 +515,11 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% group="Color"
     export function colorCheck(status: ColorLs): boolean {
-         switch (status) {
-                case ColorLs.black:
-                    return ColorLs.black == DataBuff[1]
-                    break
-                case ColorLs.blue:
-                    return ColorLs.blue == DataBuff[1]
-                    break
-                case ColorLs.brown:
-                    return ColorLs.brown == DataBuff[1]
-                    break
-                case ColorLs.green:
-                    return ColorLs.green == DataBuff[1]
-                    break
-                case ColorLs.orange:
-                    return ColorLs.orange == DataBuff[1]
-                    break
-                case ColorLs.pink:
-                    return ColorLs.pink == DataBuff[1]
-                    break
-                case ColorLs.purple:
-                    return ColorLs.purple == DataBuff[1]
-                    break
-                case ColorLs.red:
-                    return ColorLs.red == DataBuff[1]
-                    break
-                case ColorLs.rose:
-                    return ColorLs.rose == DataBuff[1]
-                    break
-                case ColorLs.white:
-                    return ColorLs.white == DataBuff[1]
-                    break
-                case ColorLs.yellow:
-                    return ColorLs.yellow == DataBuff[1]
-                    break
-                default:
-                    return false
-            }
+        if (DataBuff[0] == 9) {
+            return status == DataBuff[1]
+        }
+        else
+            return false
     }
     //% block="From data Object color status %status"
     //% group="Color"
