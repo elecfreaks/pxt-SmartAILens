@@ -420,7 +420,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card"
-    export function trafficCard(status:letterCards): boolean{
+    export function trafficCard(status:trafficCards): boolean{
         if (DataBuff[0] == 4) {
             return status == DataBuff[1]
         }
