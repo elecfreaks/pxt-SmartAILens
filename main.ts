@@ -16,8 +16,8 @@ namespace SmartAILens {
         Face = 6,
         //% block="Ball"
         Ball = 7,
-        //% block="Tracking"
-        Tracking = 8,
+        //  //% block="Tracking"
+        //  Tracking = 8,
         //% block="Color"
         Color = 9,
         //% block="Things"
@@ -288,15 +288,13 @@ namespace SmartAILens {
 
         }   
     }
-    //% block="Enable function | func1 %fun1 ||func2 %fun2|func3 %fun3"
+    //% block="switch function to %fun1"
     //% expandableArgumentMode="enabled"
     //% group="Basics" weight=2
-    export function initfunc(fun1: FuncList, fun2: FuncList = 0, fun3: FuncList=0):void{
+    export function switchfunc(fun1: FuncList):void{
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
         funcBuff[0]=0x20
         funcBuff[1]=fun1
-        funcBuff[2]=fun2
-        funcBuff[3]=fun3
         pins.i2cWriteBuffer(CameraAdd, funcBuff)
 
     }
