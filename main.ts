@@ -302,7 +302,7 @@ namespace SmartAILens {
         pins.i2cWriteBuffer(CameraAdd, funcBuff)
 
     }
-    //% block="Get once data from ElangGod"
+    //% block="Get once data from AI Lens"
     //% group="Basics" weight=3
     export function cameraData(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
