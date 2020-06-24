@@ -287,9 +287,8 @@ namespace SmartAILens {
         let timeout = 0
         while (!(pins.i2cReadNumber(0x14, NumberFormat.Int8LE))) {
             timeout++
-            if(timeout > 5000){
-                basic.showString("Init Lens error")
-                break
+            if(timeout > 100){
+                basic.showString("Init AILens Error!")
             }
         }   
     }
