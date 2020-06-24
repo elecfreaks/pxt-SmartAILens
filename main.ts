@@ -284,8 +284,13 @@ namespace SmartAILens {
     //% block="Init model IIC Port"
     //% group="Basics" weight=1
     export function initModel():void{
+        let timeout = 0
         while (!(pins.i2cReadNumber(0x14, NumberFormat.Int8LE))) {
-
+            timeout++
+            if(timeout > 5000){
+                basic.showString("Init Lens error")
+                break
+            }
         }   
     }
     //% block="switch function to %fun1"
