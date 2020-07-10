@@ -437,7 +437,7 @@ namespace SmartAILens {
     //% group="Card" weight=65
     export function numberCard(status:numberCards): boolean{
         if (DataBuff[0] == 2) {
-            return status == DataBuff[1]
+            return status == DataBuff[1] - 1
         }
         else
             return false
