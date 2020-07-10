@@ -16,8 +16,8 @@ namespace SmartAILens {
         Face = 6,
         //% block="Ball"
         Ball = 7,
-        //  //% block="Tracking"
-        //  Tracking = 8,
+        //% block="Tracking"
+        Tracking = 8,
         //% block="Color"
         Color = 9,
         //% block="Things"
