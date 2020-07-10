@@ -576,6 +576,8 @@ namespace SmartAILens {
             return false
     }
     //% block="From data Object color status %status"
+    //% status.fieldEditor="gridpicker"
+    //% status.fieldOptions.columns=3
     //% group="Color" weight=25
     export function colorData(status: Colorstatus): number {
         if (DataBuff[0] == 9) {
@@ -611,7 +613,8 @@ namespace SmartAILens {
     }
 
     //% block="learn Things ID %thingsID"
-    //% group="Learn" weight=20
+    //% group="Learn" weight=20 
+    //% thingsID.del=1
     export function learnThings(thingsID: number): void {
         let thingsBuf = pins.createBuffer(9)
         let timeout = 0
