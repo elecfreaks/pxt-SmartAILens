@@ -340,7 +340,7 @@ namespace SmartAILens {
             return false
         }
     }
-    //% block="From data Object Ball status %status"
+    //% block="From data get ball status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Ball" weight=80
@@ -392,7 +392,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a face in the picture
     * @param status Facestatus, eg: Facestatus.X
     */
-    //% block="From data get Face status %status"
+    //% block="From data get face status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Face" weight=70
@@ -492,7 +492,7 @@ namespace SmartAILens {
     * TODO: Card parameters in the screen
     * @param status otherCards, eg: Cardstatus.X
     */
-    //% block="From data Object Card status %status"
+    //% block="From data get card status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=45
@@ -565,7 +565,7 @@ namespace SmartAILens {
         else
             return null
     }
-    //% block="From data Color is %status"
+    //% block="Recognize the Color is %status"
     //% status.fieldEditor="gridpicker"
     //% group="Color" weight=30
     export function colorCheck(status: ColorLs): boolean {
@@ -575,7 +575,7 @@ namespace SmartAILens {
         else
             return false
     }
-    //% block="From data Object color status %status"
+    //% block="From data get color status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Color" weight=25
@@ -611,8 +611,11 @@ namespace SmartAILens {
             return null
         }
     }
-
-    //% block="learn Things ID %thingsID"
+    /**
+    * TODO: Learn an object in a picture
+    * @param thingsID Edit a label for the object, eg: 1
+    */
+    //% block="Learn an item ID: %thingsID"
     //% group="Learn" weight=20 
     //% thingsID.del=1
     export function learnThings(thingsID: number): void {
@@ -629,9 +632,10 @@ namespace SmartAILens {
             timeout++
         }
     }
-    //% block="From data Object things ID"
-    //% status.fieldEditor="gridpicker"
-    //% status.fieldOptions.columns=3
+    /**
+    * TODO: Judge whether there are any learned objects in the picture
+    */
+    //% block="From data get learn things ID"
     //% group="Learn" weight=15
     export function thingsData(): number {
         if (DataBuff[0] == 10 && DataBuff[2] < 10) {
