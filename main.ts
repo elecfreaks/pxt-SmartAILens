@@ -282,7 +282,7 @@ namespace SmartAILens {
         umbrella = 17
     }
     //% block="Init model IIC Port"
-    //% group="Basics" weight=1
+    //% group="Basics" weight=100
     export function initModel():void{
         let timeout = 0
         while (!(pins.i2cReadNumber(0x14, NumberFormat.Int8LE))) {
@@ -294,7 +294,7 @@ namespace SmartAILens {
     }
     //% block="switch function to %fun1"
     //% expandableArgumentMode="enabled"
-    //% group="Basics" weight=2
+    //% group="Basics" weight=95
     export function switchfunc(fun1: FuncList):void{
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
         funcBuff[0]=0x20
@@ -303,12 +303,12 @@ namespace SmartAILens {
 
     }
     //% block="Get once data from AI Lens"
-    //% group="Basics" weight=3
+    //% group="Basics" weight=90
     export function cameraData(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
     }
     //% block="Recognize the ball"
-    //% group="Ball" weight=5
+    //% group="Ball" weight=85
     export function checkBall(): boolean {
         if (DataBuff[0] == 7) {
             return true
@@ -320,7 +320,7 @@ namespace SmartAILens {
     //% block="From data Object Ball status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Ball"
+    //% group="Ball" weight=80
     export function ballData(status: Ballstatus): number {
         if (DataBuff[0] == 7) {
             switch (status) {
@@ -357,7 +357,7 @@ namespace SmartAILens {
         }
     }
     //% block="Recognize the face"
-    //% group="Face"
+    //% group="Face" weight=75
     export function checkFace(): boolean {
         if (DataBuff[0] == 6) {
             return true
@@ -369,7 +369,7 @@ namespace SmartAILens {
     //% block="From data Object Face status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Face"
+    //% group="Face" weight=70
     export function faceData(status: Facestatus): number {
         if (DataBuff[0] == 6) {
             switch (status) {
@@ -406,7 +406,7 @@ namespace SmartAILens {
     //% block="Recognize the number Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card"
+    //% group="Card" weight=65
     export function numberCard(status:numberCards): boolean{
         if (DataBuff[0] == 2) {
             return status == DataBuff[1]
@@ -418,7 +418,7 @@ namespace SmartAILens {
     //% block="Recognize the letter Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card"
+    //% group="Card" weight=60
     export function letterCard(status:letterCards): boolean{
         if (DataBuff[0] == 3) {
             return status == DataBuff[1]
@@ -429,7 +429,7 @@ namespace SmartAILens {
     //% block="Recognize the traffic Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card"
+    //% group="Card" weight=55
     export function trafficCard(status:trafficCards): boolean{
         if (DataBuff[0] == 4) {
             return status == DataBuff[1]
@@ -441,7 +441,7 @@ namespace SmartAILens {
     //% block="Recognize the other Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card"
+    //% group="Card" weight=50
     export function otherCard(status:otherCards): boolean{
         if (DataBuff[0] == 5) {
             return status == DataBuff[1]
@@ -453,7 +453,7 @@ namespace SmartAILens {
     //% block="From data Object Card status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card"
+    //% group="Card" weight=45
     export function CardData(status: Cardstatus): number {
         if (DataBuff[0] == 2 || DataBuff[0] == 3 || DataBuff[0] == 4 || DataBuff[0] == 5) {
             switch (status) {
@@ -489,7 +489,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
-    //% deprecated=true
+    //% deprecated=true weight=40
     export function lineTracking(status: LineList): boolean {
         if (DataBuff[0] == 8) {
             if (DataBuff[4] == status) {
@@ -506,7 +506,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
-    //% deprecated=true
+    //% deprecated=true weight=35
     export function trackingData(status: Linestatus): number {
         if (DataBuff[0] == 8) {
             switch (status) {
@@ -525,7 +525,7 @@ namespace SmartAILens {
     }
     //% block="From data Color is %status"
     //% status.fieldEditor="gridpicker"
-    //% group="Color"
+    //% group="Color" weight=30
     export function colorCheck(status: ColorLs): boolean {
         if (DataBuff[0] == 9) {
             return status == DataBuff[1]
@@ -534,7 +534,7 @@ namespace SmartAILens {
             return false
     }
     //% block="From data Object color status %status"
-    //% group="Color"
+    //% group="Color" weight=25
     export function colorData(status: Colorstatus): number {
         if (DataBuff[0] == 1) {
             switch (status) {
@@ -569,7 +569,7 @@ namespace SmartAILens {
     }
 
     //% block="learn Things ID %thingsID"
-    //% group="Learn"
+    //% group="Learn" weight=20
     export function learnThings(thingsID: number): void {
         let thingsBuf = pins.createBuffer(9)
         let timeout = 0
@@ -587,7 +587,7 @@ namespace SmartAILens {
     //% block="From data Object things ID"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Learn"
+    //% group="Learn" weight=15
     export function thingsData(): number {
         if (DataBuff[0] == 10 && DataBuff[2] < 10) {
             return DataBuff[1]
