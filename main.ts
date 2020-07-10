@@ -155,6 +155,9 @@ namespace SmartAILens {
         //% block="no road"
         no_road = 8
     }
+    /**
+    * Number Cards List
+    */
     export enum numberCards{
         //% block="0"
         zero = 0,
@@ -177,6 +180,9 @@ namespace SmartAILens {
         //% block="9"
         nine = 9
     }
+    /*
+    * Letters Cards List
+    */
     export enum letterCards{
         //% block="A"
         A = 0,
@@ -231,6 +237,9 @@ namespace SmartAILens {
         //% block="Z"
         Z = 25
     }
+    /*
+    * Traffic Cards List
+    */
     export enum trafficCards{
         //% block="go ahead"
         go_ahead = 0,
@@ -243,6 +252,9 @@ namespace SmartAILens {
 		//% block="turn right"
         turn_right = 4
     }
+    /*
+    * Other Cards List
+    */
     export enum otherCards{
 		//% block="hexagon"
         hexagon = 0,
@@ -281,32 +293,42 @@ namespace SmartAILens {
 		//% block="umbrella"
         umbrella = 17
     }
+    /**
+    * TODO: Waiting for module initialization.
+    */
     //% block="Init model IIC Port"
     //% group="Basics" weight=100
     export function initModel():void{
         let timeout = 0
-        while (!(pins.i2cReadNumber(0x14, NumberFormat.Int8LE))) {
+        while (!(pins.i2cReadNumber(CameraAdd, NumberFormat.Int8LE))) {
             timeout++
             if(timeout > 100){
                 basic.showString("Init AILens Error!")
             }
         }   
     }
-    //% block="switch function to %fun1"
-    //% expandableArgumentMode="enabled"
+    /**
+    * TODO: Switch recognition objects.
+    * @param fun Function list eg: FuncList.Face
+    */
+    //% block="switch function to %fun"
     //% group="Basics" weight=95
-    export function switchfunc(fun1: FuncList):void{
+    export function switchfunc(fun: FuncList):void{
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
         funcBuff[0]=0x20
-        funcBuff[1]=fun1
+        funcBuff[1]=fun
         pins.i2cWriteBuffer(CameraAdd, funcBuff)
-
     }
+
+    /**
+    * TODO: Get the data in a frame
+    */
     //% block="Get once data from AI Lens"
     //% group="Basics" weight=90
     export function cameraData(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
     }
+
     //% block="Recognize the ball"
     //% group="Ball" weight=85
     export function checkBall(): boolean {
@@ -356,17 +378,20 @@ namespace SmartAILens {
             return null
         }
     }
+
+    /**
+    * TODO: Judge whether there is a face in the picture
+    */
     //% block="Recognize the face"
     //% group="Face" weight=75
     export function checkFace(): boolean {
-        if (DataBuff[0] == 6) {
-            return true
-        }
-        else {
-            return false
-        }
+        return DataBuff[0] == 6
     }
-    //% block="From data Object Face status %status"
+    /**
+    * TODO: Judge whether there is a face in the picture
+    * @param status Facestatus, eg: Facestatus.X
+    */
+    //% block="From data get Face status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Face" weight=70
