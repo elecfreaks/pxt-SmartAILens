@@ -106,27 +106,27 @@ namespace SmartAILens {
     */
     export enum ColorLs {
         //% block="black"
-        black = 1,
+        black = 0,
         //% block="blue"
-        blue = 2,
+        blue = 1,
         //% block="brown"
-        brown = 3,
+        brown = 2,
         //% block="green"
-        green = 4,
+        green = 3,
         //% block="orange"
-        orange = 5,
+        orange = 4,
         //% block="pink"
-        pink = 6,
+        pink = 5,
         //% block="purple"
-        purple = 7,
+        purple = 6,
         //% block="red"
-        red = 8,
+        red = 7,
         //% block="rose"
-        rose = 9,
+        rose = 8,
         //% block="white"
-        white = 10,
+        white = 9,
         //% block="yellow"
-        yellow = 11
+        yellow = 10
     }
 
     export enum Linestatus {
@@ -570,7 +570,7 @@ namespace SmartAILens {
     //% group="Color" weight=30
     export function colorCheck(status: ColorLs): boolean {
         if (DataBuff[0] == 9) {
-            return status == DataBuff[1]
+            return status == DataBuff[1] - 1
         }
         else
             return false
