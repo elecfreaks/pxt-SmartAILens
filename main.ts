@@ -241,16 +241,16 @@ namespace SmartAILens {
     * Traffic Cards List
     */
     export enum trafficCards{
-        //% block="go ahead"
-        go_ahead = 0,
-		//% block="no travel"
-        no_travel = 1,
-		//% block="turn around"
-        turn_around = 2,
+        //% block="forward"
+        forward = 0,
+		//% block="stop"
+        stop = 1,
+		//% block="back"
+        back = 2,
 		//% block="turn left"
-        turn_left = 3,
+        turnleft = 3,
 		//% block="turn right"
-        turn_right = 4
+        turnright = 4
     }
     /*
     * Other Cards List
