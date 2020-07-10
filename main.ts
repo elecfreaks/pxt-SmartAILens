@@ -232,7 +232,7 @@ namespace SmartAILens {
         Z = 25
     }
     export enum trafficCards{
-		//% block="go ahead"
+        //% block="go ahead"
         go_ahead = 0,
 		//% block="no travel"
         no_travel = 1,
