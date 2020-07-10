@@ -242,15 +242,15 @@ namespace SmartAILens {
     */
     export enum trafficCards{
         //% block="forward"
-        forward = 2,
+        forward = 1,
 		//% block="back"
-        back = 1,
+        back = 0,
 		//% block="stop"
-        stop = 5,
+        stop = 4,
 		//% block="turn left"
-        turnleft = 3,
+        turnleft = 2,
 		//% block="turn right"
-        turnright = 4
+        turnright = 3
     }
     /*
     * Other Cards List
@@ -467,7 +467,7 @@ namespace SmartAILens {
     //% group="Card" weight=55
     export function trafficCard(status:trafficCards): boolean{
         if (DataBuff[0] == 4) {
-            return status == DataBuff[1]
+            return status == DataBuff[1] - 1
         }
         else
             return false
