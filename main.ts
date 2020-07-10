@@ -243,10 +243,10 @@ namespace SmartAILens {
     export enum trafficCards{
         //% block="forward"
         forward = 0,
-		//% block="stop"
-        stop = 1,
 		//% block="back"
-        back = 2,
+        back = 1,
+		//% block="stop"
+        stop = 2,
 		//% block="turn left"
         turnleft = 3,
 		//% block="turn right"
