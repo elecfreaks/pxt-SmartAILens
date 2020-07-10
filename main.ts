@@ -578,7 +578,7 @@ namespace SmartAILens {
     //% block="From data Object color status %status"
     //% group="Color" weight=25
     export function colorData(status: Colorstatus): number {
-        if (DataBuff[0] == 1) {
+        if (DataBuff[0] == 9) {
             switch (status) {
                 case Colorstatus.X:
                     return DataBuff[2]
