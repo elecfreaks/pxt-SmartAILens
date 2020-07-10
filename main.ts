@@ -427,7 +427,10 @@ namespace SmartAILens {
             return null
         }
     }
-
+    /**
+    * TODO: Judge whether there is a digital card in the screen
+    * @param status numberCards, eg: numberCards.1
+    */
     //% block="Recognize the number Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -439,7 +442,10 @@ namespace SmartAILens {
         else
             return false
     }
-
+    /**
+    * TODO: Judge whether there is a letter card in the screen
+    * @param status letterCards, eg: letterCards.A
+    */
     //% block="Recognize the letter Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -451,6 +457,10 @@ namespace SmartAILens {
         else
             return false
     }
+    /**
+    * TODO: Judge whether there is a traffic card in the screen
+    * @param status trafficCards, eg: trafficCards.forward
+    */
     //% block="Recognize the traffic Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -462,7 +472,10 @@ namespace SmartAILens {
         else
             return false
     }
-
+    /**
+    * TODO: Judge whether there is a other card in the screen
+    * @param status otherCards, eg: otherCards.cat
+    */
     //% block="Recognize the other Card %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -474,7 +487,10 @@ namespace SmartAILens {
         else
             return false
     }
-
+    /**
+    * TODO: Card parameters in the screen
+    * @param status otherCards, eg: Cardstatus.X
+    */
     //% block="From data Object Card status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
