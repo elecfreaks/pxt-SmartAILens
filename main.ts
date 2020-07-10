@@ -256,42 +256,43 @@ namespace SmartAILens {
     * Other Cards List
     */
     export enum otherCards{
+        //% block="circle"
+        circle = 0,
 		//% block="hexagon"
-        hexagon = 0,
+        hexagon = 1,
 		//% block="pentagon"
-        pentagon = 1,
-		//% block="quadrilateral"
-        quadrilateral = 2,
-		//% block="round"
-        round = 3,
+        pentagon = 2,
+		//% block="rectangle"
+        rectangle = 3,
 		//% block="triangle"
-        triangle = 4,
+        triangle = 5,
+
 		//% block="airplane"
-        airplane = 5,
+        airplane = 6,
 		//% block="apple"
-        apple = 6,
-		//% block="bread"
-        bread = 7,
-		//% block="car"
-        car = 8,
-		//% block="cat"
-        cat = 9,
-		//% block="cup"
-        cup = 10,
-		//% block="dog"
-        dog = 11,
-		//% block="egg"
-        egg = 12,
-		//% block="grape"
-        grape = 13,
-		//% block="pear"
-        pear = 14,
+        apple = 7,
 		//% block="ship"
-        ship = 15,
+        ship = 8,
+		//% block="bread"
+        bread = 9,
+		//% block="car"
+        car = 10,
+		//% block="cat"
+        cat = 11,
+		//% block="cup"
+        cup = 12,
+		//% block="dog"
+        dog = 13,
+		//% block="egg"
+        egg = 14,
+		//% block="grape"
+        grape = 15,
+		//% block="pear"
+        pear = 16,
 		//% block="strawberry"
-        strawberry = 16,
+        strawberry = 17,
 		//% block="umbrella"
-        umbrella = 17
+        umbrella = 18
     }
     /**
     * TODO: Waiting for module initialization.
