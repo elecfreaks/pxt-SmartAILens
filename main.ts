@@ -527,23 +527,10 @@ namespace SmartAILens {
         else
             return null
     }
-    //% block="From data Object Line tracking is %status"
-    //% status.fieldEditor="gridpicker"
-    //% status.fieldOptions.columns=3
-    //% group="Tracking"
-    //% deprecated=true weight=40
-    export function lineTracking(status: LineList): boolean {
-        if (DataBuff[0] == 8) {
-            if (DataBuff[4] == status) {
-                return true
-            }
-            else {
-                return false
-            }
-        }
-        else
-            return false
-    }
+    /**
+    * TODO: line parameters in the screen
+    * @param status Linestatus, eg: Linestatus.angle
+    */
     //% block="From data Object tracking status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
@@ -553,11 +540,11 @@ namespace SmartAILens {
         if (DataBuff[0] == 8) {
             switch (status) {
                 case Linestatus.angel:
-                    return (DataBuff[2]);
+                    return (DataBuff[1]);
                 case Linestatus.len:
-                    return (DataBuff[3]);
+                    return (DataBuff[2]);
                 case Linestatus.width:
-                    return (DataBuff[4]);
+                    return (DataBuff[3]);
                 default:
                     return 0;
             }
@@ -565,6 +552,10 @@ namespace SmartAILens {
         else
             return null
     }
+    /**
+    * TODO: Judge whether there is a color in the screen
+    * @param status ColorLs, eg: ColorLs.red
+    */
     //% block="Recognize the Color is %status"
     //% status.fieldEditor="gridpicker"
     //% group="Color" weight=30
@@ -575,6 +566,10 @@ namespace SmartAILens {
         else
             return false
     }
+    /**
+    * TODO: color parameters in the screen
+    * @param status Colorstatus, eg: Colorstatus.X
+    */
     //% block="From data get color status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
