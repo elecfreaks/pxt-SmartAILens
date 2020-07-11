@@ -313,6 +313,8 @@ namespace SmartAILens {
     * @param fun Function list eg: FuncList.Face
     */
     //% block="switch function to %fun"
+    //% fun.fieldEditor="gridpicker"
+    //% fun.fieldOptions.columns=3
     //% group="Basics" weight=95
     export function switchfunc(fun: FuncList):void{
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
@@ -535,7 +537,7 @@ namespace SmartAILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
-    //% deprecated=true weight=35
+    //% weight=35
     export function trackingData(status: Linestatus): number {
         if (DataBuff[0] == 8) {
             switch (status) {
@@ -558,6 +560,7 @@ namespace SmartAILens {
     */
     //% block="Recognize the Color is %status"
     //% status.fieldEditor="gridpicker"
+    //% status.fieldOptions.columns=3
     //% group="Color" weight=30
     export function colorCheck(status: ColorLs): boolean {
         if (DataBuff[0] == 9) {
