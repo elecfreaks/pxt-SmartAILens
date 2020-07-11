@@ -330,6 +330,7 @@ namespace SmartAILens {
     //% group="Basics" weight=90
     export function cameraData(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
+        basic.pause(10)
     }
 
     //% block="Recognize the ball"
