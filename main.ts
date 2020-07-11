@@ -546,6 +546,15 @@ namespace SmartAILens {
         else
             return null
     }
+    /**
+    * TODO: line parameters in the screen
+    * @param status Linestatus, eg: Linestatus.angle
+    */
+    //% block="From data get line trend to the %status"
+    //% status.fieldEditor="gridpicker"
+    //% status.fieldOptions.columns=2
+    //% group="Tracking"
+    //% weight=34
     export function lineDirection(status: LineTrend):boolean{
         if (DataBuff[0] == 8) {
             switch (status) {
