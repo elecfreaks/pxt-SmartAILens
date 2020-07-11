@@ -546,12 +546,11 @@ namespace SmartAILens {
         else
             return null
     }
-
     export function lineDirection(status: LineTrend):boolean{
         if (DataBuff[0] == 8) {
             switch (status) {
                 case LineTrend.left:
-                    if(DataBuff[2] > 110){
+                    if(DataBuff[2] < 90){
                         return true
                     }
                     else{
@@ -559,13 +558,16 @@ namespace SmartAILens {
                     }
                     break
                 case LineTrend.right:
-
+                    if(DataBuff[2] > 130){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
                     break
-
             }
         }
         return false
-
     }
     /**
     * TODO: Judge whether there is a color in the screen
