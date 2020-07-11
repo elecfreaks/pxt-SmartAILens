@@ -137,23 +137,11 @@ namespace SmartAILens {
         //% block="len"
         len = 3
     }
-    export enum LineList {
-        //% block="forward"
-        forward = 0,
-        //% block="left front"
-        left_fromt = 1,
-        //% block="right front"
-        right_fromt = 2,
-        //% block="left turn"
-        left_turn = 3,
-        //% block="right turn"
-        right_turn = 4,
-        //% block="T-junction"
-        T_junction = 5,
-        //% block="intersection"
-        intersection = 6,
-        //% block="no road"
-        no_road = 8
+    export enum LineTrend{
+        //% block="left"
+        left,
+        //% block="right"
+        right
     }
     /**
     * Number Cards List
@@ -557,6 +545,27 @@ namespace SmartAILens {
         }
         else
             return null
+    }
+
+    export function lineDirection(status: LineTrend):boolean{
+        if (DataBuff[0] == 8) {
+            switch (status) {
+                case LineTrend.left:
+                    if(DataBuff[2] > 110){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                    break
+                case LineTrend.right:
+
+                    break
+
+            }
+        }
+        return false
+
     }
     /**
     * TODO: Judge whether there is a color in the screen
