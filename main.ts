@@ -533,7 +533,7 @@ namespace SmartAILens {
     * TODO: line parameters in the screen
     * @param status Linestatus, eg: Linestatus.angle
     */
-    //% block="From data Object tracking status %status"
+    //% block="From data get tracking status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
