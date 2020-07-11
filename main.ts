@@ -543,13 +543,16 @@ namespace SmartAILens {
         if (DataBuff[0] == 8) {
             switch (status) {
                 case Linestatus.angel:
-                    return (DataBuff[1]);
-                case Linestatus.len:
-                    return (DataBuff[2]);
+                    return DataBuff[1]
+                    break
                 case Linestatus.width:
-                    return (DataBuff[3]);
+                    return DataBuff[2]
+                    break
+                case Linestatus.len:
+                    return DataBuff[3]
+                    break
                 default:
-                    return 0;
+                    return 0
             }
         }
         else
