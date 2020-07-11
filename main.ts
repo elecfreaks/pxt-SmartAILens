@@ -533,12 +533,12 @@ namespace SmartAILens {
     * TODO: line parameters in the screen
     * @param status Linestatus, eg: Linestatus.angle
     */
-    //% block="From data get tracking status %status"
+    //% block="From data get line status %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
     //% weight=35
-    export function trackingData(status: Linestatus): number {
+    export function lineData(status: Linestatus): number {
         if (DataBuff[0] == 8) {
             switch (status) {
                 case Linestatus.angel:
