@@ -21,7 +21,7 @@ namespace SmartAILens {
         Tracking = 8,
         //% block="Color recognition"
         Color = 9,
-        //% block="Things "
+        //% block="Learn Object"
         Things = 10
     }
     /**
@@ -106,42 +106,42 @@ namespace SmartAILens {
     * Status List of Color
     */
     export enum ColorLs {
-        //% block="black"
+        //% block="Black"
         black = 0,
-        //% block="blue"
+        //% block="Blue"
         blue = 1,
-        //% block="brown"
+        //% block="Brown"
         brown = 2,
-        //% block="green"
+        //% block="Green"
         green = 3,
-        //% block="orange"
+        //% block="Orange"
         orange = 4,
-        //% block="pink"
+        //% block="Pink"
         pink = 5,
-        //% block="purple"
+        //% block="Purple"
         purple = 6,
-        //% block="red"
+        //% block="Red"
         red = 7,
-        //% block="rose"
+        //% block="Rose"
         rose = 8,
-        //% block="white"
+        //% block="White"
         white = 9,
-        //% block="yellow"
+        //% block="Yellow"
         yellow = 10
     }
 
     export enum Linestatus {
-        //% block="angel"
+        //% block="Angel"
         angel = 1,
-        //% block="width"
+        //% block="Width"
         width = 2,
-        //% block="len"
+        //% block="Len"
         len = 3
     }
     export enum LineTrend{
-        //% block="left"
+        //% block="Left"
         left,
-        //% block="right"
+        //% block="Right"
         right
     }
     /**
@@ -230,61 +230,61 @@ namespace SmartAILens {
     * Traffic Cards List
     */
     export enum trafficCards{
-        //% block="forward"
+        //% block="Forward"
         forward = 1,
-		//% block="back"
+		//% block="Back"
         back = 0,
-		//% block="stop"
+		//% block="Stop"
         stop = 4,
-		//% block="turn left"
+		//% block="Turn left"
         turnleft = 2,
-		//% block="turn right"
+		//% block="Turn right"
         turnright = 3
     }
     /*
     * Other Cards List
     */
     export enum otherCards{
-        //% block="circle"
+        //% block="Circle"
         circle = 0,
-		//% block="hexagon"
+		//% block="Hexagon"
         hexagon = 1,
-		//% block="pentagon"
+		//% block="Pentagon"
         pentagon = 2,
-		//% block="rectangle"
+		//% block="Rectangle"
         rectangle = 3,
-		//% block="triangle"
+		//% block="Triangle"
         triangle = 5,
 
-		//% block="airplane"
+		//% block="Airplane"
         airplane = 6,
-		//% block="apple"
+		//% block="Apple"
         apple = 7,
-		//% block="ship"
+		//% block="Ship"
         ship = 8,
-		//% block="bread"
+		//% block="Bread"
         bread = 9,
-		//% block="car"
+		//% block="Car"
         car = 10,
-		//% block="cat"
+		//% block="Cat"
         cat = 11,
-		//% block="cup"
+		//% block="Cup"
         cup = 12,
-		//% block="dog"
+		//% block="Dog"
         dog = 13,
-		//% block="egg"
+		//% block="Egg"
         egg = 14,
-		//% block="grape"
+		//% block="Grape"
         grape = 15,
-		//% block="pear"
+		//% block="Pear"
         pear = 16,
-		//% block="strawberry"
+		//% block="Strawberry"
         strawberry = 17,
-		//% block="umbrella"
+		//% block="Umbrella"
         umbrella = 18
     }
     /**
-    * TODO: Waiting for module initialization.
+    * TODO: Waiting for module initialize.
     */
     //% block="Initialize AI-Lens via IIC port"
     //% group="Basic" weight=100
