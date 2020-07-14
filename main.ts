@@ -2,7 +2,7 @@
  * This extension is designed to programme and drive the Smart AI Lens(二郎神)
  */
 //% weight=0 color=#0031AF icon="\uf06e"
-//% groups='["Basics", "Ball", "Face", "Card", "Color", "Tracking", "Learn"]'
+//% groups='["Basic", "Ball", "Face", "Card", "Color", "Tracking", "Learn"]'
 namespace SmartAILens {
     const CameraAdd = 0X14;
     let DataBuff = pins.createBuffer(9);
@@ -10,17 +10,17 @@ namespace SmartAILens {
     * Status List of Ball
     */
     export enum FuncList {
-        //% block="Card"
+        //% block="Card recognition"
         Card = 2,
-        //% block="Face"
+        //% block="Face recognition" 
         Face = 6,
-        //% block="Ball"
+        //% block="Ball recognition"
         Ball = 7,
-        //% block="Tracking"
+        //% block="Tracking recognition"
         Tracking = 8,
-        //% block="Color"
+        //% block="Color recognition"
         Color = 9,
-        //% block="Things"
+        //% block="Things "
         Things = 10
     }
     /**
@@ -285,9 +285,9 @@ namespace SmartAILens {
     /**
     * TODO: Waiting for module initialization.
     */
-    //% block="Init model IIC Port"
-    //% group="Basics" weight=100
-    export function initModel():void{
+    //% block="Initialize AI-Lens via IIC port"
+    //% group="Basic" weight=100
+    export function initModule():void{
         let timeout = 0
         while (!(pins.i2cReadNumber(CameraAdd, NumberFormat.Int8LE))) {
             timeout++
@@ -300,10 +300,10 @@ namespace SmartAILens {
     * TODO: Switch recognition objects.
     * @param fun Function list eg: FuncList.Face
     */
-    //% block="switch function to %fun"
+    //% block="Switch function as %fun"
     //% fun.fieldEditor="gridpicker"
     //% fun.fieldOptions.columns=3
-    //% group="Basics" weight=95
+    //% group="Basic" weight=95
     export function switchfunc(fun: FuncList):void{
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
         funcBuff[0]=0x20
@@ -312,26 +312,27 @@ namespace SmartAILens {
     }
 
     /**
-    * TODO: Get the data in a frame
+    * TODO: Get the image in a frame
     */
-    //% block="Get once data from AI Lens"
-    //% group="Basics" weight=90
-    export function cameraData(): void {
+    //% block="Get one image from AI-Lens"
+    //% group="Basic" weight=90
+    export function cameraImage(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
         basic.pause(10)
     }
 
-    //% block="Recognize the ball"
+    /**
+    * TODO: Judge the image contains a ball
+    */
+    //% block="Image contains ball(s)"
     //% group="Ball" weight=85
     export function checkBall(): boolean {
-        if (DataBuff[0] == 7) {
-            return true
-        }
-        else {
-            return false
-        }
+        return DataBuff[0] == 7
     }
-    //% block="From data get ball status %status"
+    /**
+    * TODO: In the image get ball(s)' info
+    */
+    //% block="In the image get ball(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Ball" weight=80
@@ -374,7 +375,7 @@ namespace SmartAILens {
     /**
     * TODO: Judge whether there is a face in the picture
     */
-    //% block="Recognize the face"
+    //% block="Image contains a face"
     //% group="Face" weight=75
     export function checkFace(): boolean {
         return DataBuff[0] == 6
@@ -383,7 +384,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a face in the picture
     * @param status Facestatus, eg: Facestatus.X
     */
-    //% block="From data get face status %status"
+    //% block="In the image get face(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Face" weight=70
@@ -423,7 +424,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a digital card in the screen
     * @param status numberCards, eg: numberCards.1
     */
-    //% block="Recognize the number Card %status"
+    //% block="Image contains number card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=65
@@ -438,7 +439,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a letter card in the screen
     * @param status letterCards, eg: letterCards.A
     */
-    //% block="Recognize the letter Card %status"
+    //% block="Image contains letter card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=60
@@ -453,7 +454,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a traffic card in the screen
     * @param status trafficCards, eg: trafficCards.forward
     */
-    //% block="Recognize the traffic Card %status"
+    //% block="Image contains traffic card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=55
@@ -468,7 +469,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a other card in the screen
     * @param status otherCards, eg: otherCards.cat
     */
-    //% block="Recognize the other Card %status"
+    //% block="Image contains other card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=50
@@ -483,7 +484,7 @@ namespace SmartAILens {
     * TODO: Card parameters in the screen
     * @param status otherCards, eg: Cardstatus.X
     */
-    //% block="From data get card status %status"
+    //% block="In the image get card(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Card" weight=45
@@ -522,7 +523,7 @@ namespace SmartAILens {
     * TODO: line parameters in the screen
     * @param status Linestatus, eg: Linestatus.angle
     */
-    //% block="From data get line status %status"
+    //% block="In the image get line(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
@@ -550,7 +551,7 @@ namespace SmartAILens {
     * TODO: line parameters in the screen
     * @param status Linestatus, eg: Linestatus.angle
     */
-    //% block="From data get line trend to the %status"
+    //% block="Image contains line's direction towards %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=2
     //% group="Tracking"
@@ -582,7 +583,7 @@ namespace SmartAILens {
     * TODO: Judge whether there is a color in the screen
     * @param status ColorLs, eg: ColorLs.red
     */
-    //% block="Recognize the Color is %status"
+    //% block="Image contains color card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Color" weight=30
@@ -597,7 +598,7 @@ namespace SmartAILens {
     * TODO: color parameters in the screen
     * @param status Colorstatus, eg: Colorstatus.X
     */
-    //% block="From data get color status %status"
+    //% block="In the image get color card(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Color" weight=25
@@ -637,17 +638,17 @@ namespace SmartAILens {
     * TODO: Learn an object in a picture
     * @param thingsID Edit a label for the object, eg: 1
     */
-    //% block="Learn an item ID: %thingsID"
+    //% block="Learn an object with ID: %thingsID"
     //% group="Learn" weight=20 
     //% thingsID.del=1
-    export function learnThings(thingsID: number): void {
+    export function learnObject(thingsID: number): void {
         let thingsBuf = pins.createBuffer(9)
         let timeout = 0
         thingsBuf[0] = 10
         thingsBuf[1] = thingsID
         pins.i2cWriteBuffer(CameraAdd, thingsBuf)
         while (timeout > 10000) {
-            cameraData()
+            cameraImage()
             if (DataBuff[0] == 9 && DataBuff[1] == thingsID) {
                 break
             }
@@ -657,9 +658,9 @@ namespace SmartAILens {
     /**
     * TODO: Judge whether there are any learned objects in the picture
     */
-    //% block="From data get learn things ID"
+    //% block="In the image get learnt object ID"
     //% group="Learn" weight=15
-    export function thingsData(): number {
+    export function objectID(): number {
         if (DataBuff[0] == 10 && DataBuff[2] < 10) {
             return DataBuff[1]
         }
